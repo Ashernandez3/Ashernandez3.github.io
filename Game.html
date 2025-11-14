@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game/Interaction | Portfolio</title>
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- p5.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">A.S.H</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="Index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="Glitch.html">Glitch Art</a></li>
+          <li class="nav-item"><a class="nav-link" href="Meme.html">Meme Mashup</a></li>
+          <li class="nav-item"><a class="nav-link" href="Minecraft.html">Minecraft</a></li>
+          <li class="nav-item"><a class="nav-link" href="3dwork.html">3D Work</a></li>
+          <li class="nav-item"><a class="nav-link" href="Netart.html">Net Art</a></li>
+          <li class="nav-item"><a class="nav-link" href="Diyphotoshop.html">DIY Photoshop</a></li>
+          <li class="nav-item"><a class="nav-link active" href="Game.html">Game/Interaction</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Game Section -->
+  <section class="py-5 mt-5 text-center">
+    <div class="container">
+      <h1 class="fw-bold mb-4">Game/Interaction</h1>
+      <p class="lead mb-5">
+        Chase the orange dot using your mouse. The speed increases and the orange dot gets smaller after each level.
+      </p>
+
+      <!-- Game Canvas -->
+      <div id="game-container" style="max-width: 500px; margin: auto;"></div>
+
+      <!-- Restart Button -->
+      <div class="text-center mt-3">
+        <button id="restart-btn" class="btn btn-primary">Start Over</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game Script -->
+  <script>
+    let leafX, leafY;
+    let leafSize = 40; // smaller starting size
+    let score = 0;
+    let level = 1;
+    let speed = 1.5;
+    let extraLeaves = [];
+    let leafColors = [
+      [34, 139, 34], [50, 205, 50], [255, 215, 0],
+      [255, 69, 0], [178, 34, 34], [138, 43, 226],
+      [255, 105, 180]
+    ];
+
+    let canvas;
+
+    function setup() {
+      const containerWidth = document.getElementById('game-container').offsetWidth;
+      canvas = createCanvas(containerWidth, containerWidth); // square canvas
+      canvas.parent('game-container');
+      textAlign(CENTER);
+
+      leafX = random(width);
+      leafY = random(height);
+
+      for (let i = 0; i < 45; i++) {
+        extraLeaves.push({
+          x: random(width),
+          y: random(height),
+          size: random(15, 30), // smaller leaves
+          col: random(leafColors),
+          fallSpeed: random(0.8, 1.5)
+        });
+      }
+    }
+
+    function windowResized() {
+      const containerWidth = document.getElementById('game-container').offsetWidth;
+      resizeCanvas(containerWidth, containerWidth);
+    }
+
+    function draw() {
+      background(135, 206, 250);
+      drawDecorativeLeaves();
+
+      fill(0);
+      textSize(20 * (width / 500)); // scale text
+      text("Score: " + score, width / 2, 30 * (width / 500));
+      text("Level: " + level, width / 2, 60 * (width / 500));
+
+      drawMainLeaf();
+
+      let d = dist(mouseX, mouseY, leafX, leafY);
+      if (d < leafSize / 2) {
+        score++;
+        leafX = random(width);
+        leafY = random(height);
+        levelUp();
+      }
+    }
+
+    function drawMainLeaf() {
+      fill(255, 140, 0);
+      ellipse(leafX, leafY, leafSize, leafSize);
+      leafX += random(-speed, speed);
+      leafY += random(-speed, speed);
+      leafX = constrain(leafX, 0, width);
+      leafY = constrain(leafY, 0, height);
+    }
+
+    function drawDecorativeLeaves() {
+      noStroke();
+      for (let lf of extraLeaves) {
+        fill(lf.col);
+        ellipse(lf.x, lf.y, lf.size);
+        lf.y += lf.fallSpeed * 1.3 * level;
+        lf.x += random(-0.4, 0.4);
+        if (lf.y > height + 20) {
+          lf.y = -10;
+          lf.x = random(width);
+        }
+      }
+    }
+
+    function levelUp() {
+      if (score === 3) { level = 2; speed = 3; leafSize = 35; }
+      if (score === 7) { level = 3; speed = 5; leafSize = 30; }
+      if (score === 12) { level = 4; speed = 8; leafSize = 25; }
+      if (score === 20) { level = 5; speed = 12; leafSize = 20; }
+      if (score === 30) { level = 6; speed = 18; leafSize = 18; }
+    }
+
+    // Restart game function
+    function restartGame() {
+      score = 0;
+      level = 1;
+      speed = 1.5;
+      leafSize = 40;
+
+      leafX = random(width);
+      leafY = random(height);
+
+      for (let lf of extraLeaves) {
+        lf.x = random(width);
+        lf.y = random(height);
+      }
+    }
+
+    // Connect button click to restartGame function
+    document.getElementById('restart-btn').addEventListener('click', restartGame);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
