@@ -44,6 +44,7 @@
       position: relative;
       overflow: hidden;
       border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .gallery-card img {
@@ -51,6 +52,11 @@
       height: 320px;
       object-fit: cover;
       transition: transform 0.5s ease;
+    }
+
+    .gallery-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     }
 
     .gallery-card:hover img {
@@ -76,6 +82,19 @@
 
     .gallery-card:hover .gallery-overlay {
       opacity: 1;
+    }
+
+    /* EMAIL LINK STYLE */
+    .email-link {
+      color: black;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: 0.3s ease;
+    }
+
+    .email-link:hover {
+      color: #555;
+      border-bottom: 1px solid black;
     }
   </style>
 </head>
@@ -163,21 +182,30 @@
 
       <!-- IMAGE -->
       <div class="col-md-4 mb-3">
-        <img src="painting.jpg"class="img-fluid rounded shadow" alt="Self Portrait">
+        <img src="painting.jpg" class="img-fluid rounded shadow" alt="Self Portrait">
       </div>
 
       <!-- TEXT -->
       <div class="col-md-8 text-start">
 
         <h5 class="fw-bold">Artist Statement</h5>
-        <p>First genertion Mexican American artist.
-        </p>
+        <p>First generation Mexican American artist.</p>
 
         <hr>
 
-        <p class="mb-1"><strong>Education:</strong> Los Medanos College(2022-2025)</h5>		
-		<p class="mb-1"><strong>Associates:</strong> Fine Arts, Graphic Design and Liberal Arts
-        <p class="mb-1"><strong>Contact me:</strong> 3brosalex@gmail.com
+        <p class="mb-1"><strong>Education:</strong> Los Medanos College (2022–2025)</p>
+        <p class="mb-1"><strong>Associates:</strong> Fine Arts, Graphic Design, Liberal Arts</p>
+
+        <!-- CLICKABLE EMAIL -->
+        <p class="mb-2">
+          <strong>Contact:</strong>
+          <a href="mailto:3brosalex@gmail.com" class="email-link">3brosalex@gmail.com</a>
+        </p>
+
+        <!-- BUTTON VERSION -->
+        <a href="mailto:3brosalex@gmail.com" class="btn btn-dark btn-sm mt-2">
+          Contact Me
+        </a>
 
       </div>
 
@@ -192,7 +220,6 @@
 <section class="container">
   <div class="row g-4">
 
-    <!-- ART 74 -->
     <div class="col-md-6">
       <a href="Art74.html" class="text-decoration-none">
         <div class="gallery-card">
@@ -205,7 +232,6 @@
       </a>
     </div>
 
-    <!-- ART 75 -->
     <div class="col-md-6">
       <a href="Art75.html" class="text-decoration-none">
         <div class="gallery-card">
@@ -224,7 +250,6 @@
 <section class="container mb-5">
   <div class="row g-4">
 
-    <!-- PHOTOGRAPHY -->
     <div class="col-md-6">
       <a href="photography.html" class="text-decoration-none">
         <div class="gallery-card">
@@ -237,7 +262,6 @@
       </a>
     </div>
 
-    <!-- SCULPTURE -->
     <div class="col-md-6">
       <a href="sculptures.html" class="text-decoration-none">
         <div class="gallery-card">
