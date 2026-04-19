@@ -13,18 +13,51 @@
       padding-top: 80px;
     }
 
+    /* CARD IMAGE */
     .card-img-top {
       height: 250px;
       object-fit: cover;
     }
 
-    .card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* HOVER ANIMATION */
+    .overlay-card {
+      position: relative;
+      overflow: hidden;
     }
 
-    .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    .overlay-card img {
+      transition: transform 0.4s ease;
+    }
+
+    .overlay-card:hover img {
+      transform: scale(1.1);
+    }
+
+    /* DARK OVERLAY */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      color: white;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      padding: 20px;
+
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    .overlay-card:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay h5 {
+      font-weight: bold;
     }
   </style>
 </head>
@@ -47,11 +80,10 @@
           <a class="nav-link" href="Index.html">Home</a>
         </li>
 
-        <!-- Art74 -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Art74</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item active" href="Art74.html">All Art 74 Projects</a></li>
+            <li><a class="dropdown-item" href="Art74.html">All Art 74 Projects</a></li>
             <li><a class="dropdown-item" href="Glitch.html">Glitch Art</a></li>
             <li><a class="dropdown-item" href="Meme.html">Meme Mashup</a></li>
             <li><a class="dropdown-item" href="Minecraft.html">Minecraft</a></li>
@@ -63,32 +95,12 @@
           </ul>
         </li>
 
-        <!-- Art75 -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Art75</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="Art75.html">All Art 75 Projects</a></li>
-            <li><a class="dropdown-item" href="record.html">Record by Sound</a></li>
-            <li><a class="dropdown-item" href="technology.html">Technology Paradoxes</a></li>
-            <li><a class="dropdown-item" href="videobody.html">Video & Body</a></li>
-          </ul>
-        </li>
-
-        <!-- Studio Work -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Studio Work</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="sculptures.html">Sculptures</a></li>
-            <li><a class="dropdown-item" href="photography.html">Photography</a></li>
-          </ul>
-        </li>
-
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- PAGE CONTENT -->
+<!-- CONTENT -->
 <section class="py-5 text-center">
   <div class="container">
 
@@ -96,25 +108,29 @@
 
     <div class="row g-4">
 
-      <!-- Glitch Art -->
+      <!-- Glitch -->
       <div class="col-md-4">
         <a href="Glitch.html" class="text-decoration-none text-dark">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm overlay-card">
             <img src="glitchart1.jpg" class="card-img-top">
-            <div class="card-body">
+
+            <div class="overlay">
               <h5>Glitch Art</h5>
+              <p>Digital distortion and image manipulation.</p>
             </div>
           </div>
         </a>
       </div>
 
-      <!-- Meme Mashup -->
+      <!-- Meme -->
       <div class="col-md-4">
         <a href="Meme.html" class="text-decoration-none text-dark">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm overlay-card">
             <img src="mememashup.jpg" class="card-img-top">
-            <div class="card-body">
+
+            <div class="overlay">
               <h5>Meme Mashup</h5>
+              <p>Combining internet culture and visual humor.</p>
             </div>
           </div>
         </a>
@@ -123,10 +139,12 @@
       <!-- Minecraft -->
       <div class="col-md-4">
         <a href="Minecraft.html" class="text-decoration-none text-dark">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm overlay-card">
             <img src="minecraft1.jpg" class="card-img-top">
-            <div class="card-body">
+
+            <div class="overlay">
               <h5>Minecraft</h5>
+              <p>3D world building and digital environments.</p>
             </div>
           </div>
         </a>
@@ -135,10 +153,12 @@
       <!-- 3D Work -->
       <div class="col-md-4">
         <a href="3dwork.html" class="text-decoration-none text-dark">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm overlay-card">
             <img src="3d1.jpg" class="card-img-top">
-            <div class="card-body">
+
+            <div class="overlay">
               <h5>3D Work</h5>
+              <p>Modeling and digital sculpting experiments.</p>
             </div>
           </div>
         </a>
@@ -147,10 +167,12 @@
       <!-- Net Art -->
       <div class="col-md-4">
         <a href="Netart.html" class="text-decoration-none text-dark">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm overlay-card">
             <img src="netart.jpg" class="card-img-top">
-            <div class="card-body">
+
+            <div class="overlay">
               <h5>Net Art</h5>
+              <p>Interactive web-based art experience.</p>
             </div>
           </div>
         </a>
@@ -159,10 +181,12 @@
       <!-- DIY Photoshop -->
       <div class="col-md-4">
         <a href="Diyphotoshop.html" class="text-decoration-none text-dark">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm overlay-card">
             <img src="diyphotoshop.jpg" class="card-img-top">
-            <div class="card-body">
+
+            <div class="overlay">
               <h5>DIY Photoshop</h5>
+              <p>Creative image manipulation techniques.</p>
             </div>
           </div>
         </a>
@@ -171,10 +195,12 @@
       <!-- Game / Interaction -->
       <div class="col-md-4">
         <a href="Game.html" class="text-decoration-none text-dark">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm overlay-card">
             <img src="game.jpg" class="card-img-top">
-            <div class="card-body">
+
+            <div class="overlay">
               <h5>Game / Interaction</h5>
+              <p>Playable interactive digital experience.</p>
             </div>
           </div>
         </a>
@@ -183,10 +209,12 @@
       <!-- Final Project -->
       <div class="col-md-4">
         <a href="Finalproject.html" class="text-decoration-none text-dark">
-          <div class="card shadow-sm">
-            <img src="nopal.jpg" class="card-img-top">
-            <div class="card-body">
+          <div class="card shadow-sm overlay-card">
+            <img src="finalproject.jpg" class="card-img-top">
+
+            <div class="overlay">
               <h5>Final Project</h5>
+              <p>Capstone work combining all skills learned.</p>
             </div>
           </div>
         </a>
