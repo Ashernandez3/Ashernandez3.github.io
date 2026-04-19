@@ -11,15 +11,16 @@
     body {
       background: #f6f6f6;
       font-family: Arial, sans-serif;
+      padding-top: 80px;
     }
 
-    /* NAVBAR */
+    /* NAVBAR (museum glass style but still functional Bootstrap) */
     .navbar {
       background: rgba(255,255,255,0.9) !important;
       backdrop-filter: blur(10px);
     }
 
-    /* HERO */
+    /* HERO SECTION */
     .hero {
       height: 60vh;
       display: flex;
@@ -37,7 +38,14 @@
       color: #666;
     }
 
-    /* MUSEUM GRID */
+    /* SECTION TITLES */
+    .section-title {
+      text-align: center;
+      margin: 60px 0 30px;
+      letter-spacing: 1px;
+    }
+
+    /* GALLERY CARDS */
     .gallery-card {
       position: relative;
       overflow: hidden;
@@ -76,20 +84,15 @@
     .gallery-card:hover .gallery-overlay {
       opacity: 1;
     }
-
-    .section-title {
-      text-align: center;
-      margin: 60px 0 30px;
-      letter-spacing: 1px;
-    }
   </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+<!-- NAVBAR (FIXED VERSION) -->
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top">
   <div class="container">
+
     <a class="navbar-brand fw-bold" href="Index.html">A.S.H | Gallery</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
@@ -99,18 +102,29 @@
     <div class="collapse navbar-collapse justify-content-end" id="nav">
       <ul class="navbar-nav">
 
-        <li class="nav-item"><a class="nav-link" href="Index.html">Home</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="Index.html">Home</a>
+        </li>
 
-        <li class="nav-item"><a class="nav-link" href="Art74.html">Art 74</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="Art74.html">Art 74</a>
+        </li>
 
-        <li class="nav-item"><a class="nav-link" href="Art75.html">Art 75</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="Art75.html">Art 75</a>
+        </li>
 
-        <li class="nav-item"><a class="nav-link" href="photography.html">Photography</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="photography.html">Photography</a>
+        </li>
 
-        <li class="nav-item"><a class="nav-link" href="sculptures.html">Sculpture</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="sculptures.html">Sculpture</a>
+        </li>
 
       </ul>
     </div>
+
   </div>
 </nav>
 
@@ -118,7 +132,7 @@
 <section class="hero">
   <div>
     <h1>Digital Art Gallery</h1>
-    <p>Alexandra S. Hernandez — Interactive Media & Visual Work</p>
+    <p>Alexandra S. Hernandez</p>
   </div>
 </section>
 
@@ -128,27 +142,27 @@
 <section class="container">
   <div class="row g-4">
 
-    <!-- Art 74 -->
+    <!-- ART 74 -->
     <div class="col-md-6">
       <a href="Art74.html" class="text-decoration-none">
         <div class="gallery-card">
           <img src="glitchart1.jpg">
           <div class="gallery-overlay">
-            <h3>Art 74</h3>
-            <p>Digital experiments, glitch, 3D, and interactive media</p>
+            <h3>Art 74 Works</h3>
+            <p>View</p>
           </div>
         </div>
       </a>
     </div>
 
-    <!-- Art 75 -->
+    <!-- ART 75 -->
     <div class="col-md-6">
       <a href="Art75.html" class="text-decoration-none">
         <div class="gallery-card">
-          <img src="Recordbysound.mp4.jpg">
+          <img src="Recordbysound.jpg">
           <div class="gallery-overlay">
-            <h3>Art 75</h3>
-            <p>Video, sound, and conceptual media works</p>
+            <h3>Art 75 Works</h3>
+            <p>View</p>
           </div>
         </div>
       </a>
@@ -157,33 +171,33 @@
   </div>
 </section>
 
-<!-- SECOND ROW -->
+<!-- STUDIO WORK -->
 <h2 class="section-title">Studio Practice</h2>
 
 <section class="container mb-5">
   <div class="row g-4">
 
-    <!-- Photography -->
+    <!-- PHOTOGRAPHY -->
     <div class="col-md-6">
       <a href="photography.html" class="text-decoration-none">
         <div class="gallery-card">
           <img src="series1cover.jpg">
           <div class="gallery-overlay">
             <h3>Photography</h3>
-            <p>Series-based conceptual photography work</p>
+            <p>View</p>
           </div>
         </div>
       </a>
     </div>
 
-    <!-- Sculpture -->
+    <!-- SCULPTURE -->
     <div class="col-md-6">
       <a href="sculptures.html" class="text-decoration-none">
         <div class="gallery-card">
           <img src="sculpture1.jpg">
           <div class="gallery-overlay">
             <h3>Sculpture</h3>
-            <p>Physical material exploration and form studies</p>
+            <p>View</p>
           </div>
         </div>
       </a>
@@ -193,5 +207,6 @@
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
