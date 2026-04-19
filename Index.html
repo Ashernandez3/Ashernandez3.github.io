@@ -14,13 +14,7 @@
       padding-top: 80px;
     }
 
-    /* NAVBAR (museum glass style but still functional Bootstrap) */
-    .navbar {
-      background: rgba(255,255,255,0.9) !important;
-      backdrop-filter: blur(10px);
-    }
-
-    /* HERO SECTION */
+    /* HERO */
     .hero {
       height: 60vh;
       display: flex;
@@ -38,7 +32,7 @@
       color: #666;
     }
 
-    /* SECTION TITLES */
+    /* SECTION TITLE */
     .section-title {
       text-align: center;
       margin: 60px 0 30px;
@@ -63,7 +57,6 @@
       transform: scale(1.1);
     }
 
-    /* OVERLAY */
     .gallery-overlay {
       position: absolute;
       inset: 0;
@@ -89,8 +82,8 @@
 
 <body>
 
-<!-- NAVBAR (FIXED VERSION) -->
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top">
+<!-- NAVBAR (FIXED — MATCHES ART74 STYLE) -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
   <div class="container">
 
     <a class="navbar-brand fw-bold" href="Index.html">A.S.H</a>
@@ -103,23 +96,49 @@
       <ul class="navbar-nav">
 
         <li class="nav-item">
-          <a class="nav-link" href="Index.html">Home</a>
+          <a class="nav-link active" href="Index.html">Home</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="Art74.html">Art 74</a>
+        <!-- ART 74 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            Art 74
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="Art74.html">All Art 74 Projects</a></li>
+            <li><a class="dropdown-item" href="Glitch.html">Glitch Art</a></li>
+            <li><a class="dropdown-item" href="Meme.html">Meme Mashup</a></li>
+            <li><a class="dropdown-item" href="Minecraft.html">Minecraft</a></li>
+            <li><a class="dropdown-item" href="3dwork.html">3D Work</a></li>
+            <li><a class="dropdown-item" href="Netart.html">Net Art</a></li>
+            <li><a class="dropdown-item" href="Diyphotoshop.html">DIY Photoshop</a></li>
+            <li><a class="dropdown-item" href="Game.html">Game / Interaction</a></li>
+            <li><a class="dropdown-item" href="Finalproject.html">Final Project</a></li>
+          </ul>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="Art75.html">Art 75</a>
+        <!-- ART 75 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            Art 75
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="Art75.html">All Art 75 Projects</a></li>
+            <li><a class="dropdown-item" href="record.html">Record by Sound</a></li>
+            <li><a class="dropdown-item" href="technology.html">Technology Paradoxes</a></li>
+            <li><a class="dropdown-item" href="videobody.html">Video & Body</a></li>
+          </ul>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="photography.html">Photography</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="sculptures.html">Sculpture</a>
+        <!-- STUDIO -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            Studio Work
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="photography.html">Photography</a></li>
+            <li><a class="dropdown-item" href="sculptures.html">Sculpture</a></li>
+          </ul>
         </li>
 
       </ul>
@@ -137,7 +156,7 @@
 </section>
 
 <!-- FEATURED WORK -->
-<h2 class="section-title"> View Works</h2>
+<h2 class="section-title">View Works</h2>
 
 <section class="container">
   <div class="row g-4">
