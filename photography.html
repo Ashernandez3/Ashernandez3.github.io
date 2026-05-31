@@ -10,22 +10,19 @@
 
   <style>
     body {
-      padding-top: 80px; /* prevents navbar overlap */
+      padding-top: 80px;
     }
 
-    /* Image sizing */
     .card-img-top {
       height: 300px;
       object-fit: cover;
     }
 
-    /* Overlay setup */
     .overlay-card {
       position: relative;
       overflow: hidden;
     }
 
-    /* Overlay layer */
     .overlay {
       position: absolute;
       inset: 0;
@@ -44,12 +41,10 @@
       transition: 0.3s ease;
     }
 
-    /* Show overlay on hover */
     .overlay-card:hover .overlay {
       opacity: 1;
     }
 
-    /* Image zoom */
     .overlay-card img {
       transition: transform 0.4s ease;
     }
@@ -62,7 +57,7 @@
 </head>
 <body>
 
-<!-- ✅ FULL NAVBAR -->
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
   <div class="container">
     <a class="navbar-brand fw-bold" href="Index.html">A.S.H</a>
@@ -78,7 +73,6 @@
           <a class="nav-link" href="Index.html">Home</a>
         </li>
 
-        <!-- Art74 -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Art74</a>
           <ul class="dropdown-menu">
@@ -93,7 +87,6 @@
           </ul>
         </li>
 
-        <!-- Art75 -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Art75</a>
           <ul class="dropdown-menu">
@@ -104,7 +97,6 @@
           </ul>
         </li>
 
-        <!-- Studio Work -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Studio Work</a>
           <ul class="dropdown-menu">
@@ -164,11 +156,24 @@
         </a>
       </div>
 
+      <!-- Series 4 - Justice -->
+      <div class="col-md-4">
+        <a href="series4.html" class="text-decoration-none">
+          <div class="card shadow-sm overlay-card">
+            <img src="1_ahernandez_justice.jpg" class="card-img-top">
+            <div class="overlay">
+              <h5>Justice: Homelessness (2026)</h5>
+              <p>View</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- Bootstrap JS (needed for dropdowns) -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
