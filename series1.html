@@ -15,10 +15,28 @@
 
     img {
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
     img:hover {
       transform: scale(1.05);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -38,12 +56,10 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
 
-        <!-- Home -->
         <li class="nav-item">
           <a class="nav-link" href="Index.html">Home</a>
         </li>
 
-        <!-- Art74 -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Art74</a>
           <ul class="dropdown-menu">
@@ -59,7 +75,6 @@
           </ul>
         </li>
 
-        <!-- Art75 -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Art75</a>
           <ul class="dropdown-menu">
@@ -70,7 +85,6 @@
           </ul>
         </li>
 
-        <!-- Studio -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Studio Work</a>
           <ul class="dropdown-menu">
@@ -98,15 +112,15 @@
     <div class="row g-4">
 
       <div class="col-md-4">
-        <img src="series1photo1.jpg" class="img-fluid rounded shadow">
+        <img src="series1photo1.jpg" class="img-fluid rounded shadow" onclick="openLightbox(this.src)">
       </div>
 
       <div class="col-md-4">
-        <img src="series1cover.jpg" class="img-fluid rounded shadow">
+        <img src="series1cover.jpg" class="img-fluid rounded shadow" onclick="openLightbox(this.src)">
       </div>
 
       <div class="col-md-4">
-        <img src="seriesphoto3.jpg" class="img-fluid rounded shadow">
+        <img src="seriesphoto3.jpg" class="img-fluid rounded shadow" onclick="openLightbox(this.src)">
       </div>
 
     </div>
@@ -114,8 +128,24 @@
   </div>
 </section>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function openLightbox(src) {
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
 
 </body>
 </html>
